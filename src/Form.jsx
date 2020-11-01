@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Select,MenuItem, FormGroup, InputAdornment, Input, IconButton, InputLabel } from '@material-ui/core';
+import { Select,MenuItem, FormGroup, InputAdornment, Input, IconButton } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
 import { faBold, faClock, faItalic, faPaperclip, faListOl, faList, faPhotoVideo, faReply, faShare, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
@@ -85,9 +85,54 @@ import { Grid, Cell, Switch} from 'react-mdl';
         setDescriptionType(event.target.value);
     }
 
+    
+    // validation part
+    const valid = () => {
+        if(titleValue.length < 1 ){
+            console.log("it must contain a title"); 
+        }
+        else if(eventType.length < 1){
+            console.log("it must contain a event type");
+        }
+        else if(categoryType.length < 1){
+            console.log("it must contain a category type");
+        }
+        else if(summary.length < 1){
+            console.log("it must contain a summary ");
+        }
+        else if(onlineLink.length < 1){
+            console.log("it must contain a link ");
+        }
+        else if(TimezoneType.length < 1){
+            console.log("it must contain a Timezone ");
+        }
+        else if(stime.length < 1){
+            console.log("it must contain a start time ");
+        }
+        else if(etime.length < 1){
+            console.log("it must contain a end time ");
+        }
+        else if(sdate.length < 1){
+            console.log("it must contain a start date ");
+        }
+        else if(edate.length < 1){
+            console.log("it must contain a end date ");
+        }
+        
+        else{
+            return true
+        }
+    }
     //submit button function
     const submittion = () => {
-        alert(`Account for ${titleValue} created successfully`);
+        if(valid() === true){
+            alert(`Account for ${titleValue} created successfully`);
+        }
+
+        else{
+            alert(" fields with * are mandatory ")
+        }
+        // alert(`Account for ${titleValue} created successfully`);
     }
 
     return (
@@ -145,6 +190,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                     style={{width:"100%"}}
                     />
                     <label style={{textAlign:"right",color:"gray",fontSize:"12px"}}>(0/300)</label>
+                    {/* <p style={{color:"red", fontSize:"16px"}}>{titleError}</p> */}
                 </FormGroup>
                 
                 {/* categories ui code */}
@@ -338,7 +384,6 @@ import { Grid, Cell, Switch} from 'react-mdl';
                  {/* footer ui code */}               
                 <p style={{marginTop:"48px",textAlign:"center",color:"gray"}}>Use options on the top right section of the screen to save your changes</p>
                 
-
 
                 </form>
             </div>
