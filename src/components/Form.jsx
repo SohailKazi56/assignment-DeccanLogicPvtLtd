@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import { Select,MenuItem, FormGroup, InputAdornment, Input, IconButton } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
 import { faBold, faClock, faItalic, faPaperclip, faListOl, faList, faPhotoVideo, faReply, faShare, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
 import { Grid, Cell, Switch} from 'react-mdl';
+// import { Route } from 'react-router-dom';
+// import Home from './Home';
 
  const Form = () => {
 
@@ -145,7 +147,10 @@ import { Grid, Cell, Switch} from 'react-mdl';
         
         if(valid() === true){
             alert(`Account for ${titleValue} created successfully`);
-            return eventError="";
+
+            // <Switch>
+            //     <Route path="/" exact component={Home} />
+            // </Switch>
         }
 
         else{

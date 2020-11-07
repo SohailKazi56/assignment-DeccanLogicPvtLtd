@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Appbararea from './Appbararea';
-import Form from './Form';
+import Form from './components/Form';
+import Appbararea from './components/Appbararea';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     
     <div className="container" >
 
-      <Appbararea />
+      < Appbararea />
       <Form />
   
     </div>
