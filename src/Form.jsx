@@ -85,38 +85,55 @@ import { Grid, Cell, Switch} from 'react-mdl';
         setDescriptionType(event.target.value);
     }
 
+    var titleError = " it must contain a title ";
+    var eventError = " it must contain a event type ";
+    var categoryError = " it must contain a category type ";
+    var summaryError = " it must contain a short summary ";
+    var typeError = " it must contain a privacy type ";
+    var onlineLinkError = " it must contain a onine link ";
+    var timezoneError = " it must contain a timezone area ";
+    var sdateError = " it must contain a start date ";
+    var edateError = " it must contain a end date ";
+    var stimeError = " it must contain a start time ";
+    var etimeError = " it must contain a end time ";
+
     
     // validation part
     const valid = () => {
+
         if(titleValue.length < 1 ){
-            console.log("it must contain a title"); 
+            // console.log("it must contain a title or a short summmary to proceed further");
+            return titleError;
         }
         else if(eventType.length < 1){
-            console.log("it must contain a event type");
+            return eventError;
         }
         else if(categoryType.length < 1){
-            console.log("it must contain a category type");
+            return categoryError;
         }
         else if(summary.length < 1){
-            console.log("it must contain a summary ");
+            return summaryError;
+        }
+        else if(typeValue.length < 1){
+            return typeError;
         }
         else if(onlineLink.length < 1){
-            console.log("it must contain a link ");
+            return onlineLinkError;
         }
         else if(TimezoneType.length < 1){
-            console.log("it must contain a Timezone ");
+            return timezoneError;
         }
         else if(stime.length < 1){
-            console.log("it must contain a start time ");
+            return stimeError;
         }
         else if(etime.length < 1){
-            console.log("it must contain a end time ");
+            return etimeError;
         }
         else if(sdate.length < 1){
-            console.log("it must contain a start date ");
+            return sdateError;
         }
         else if(edate.length < 1){
-            console.log("it must contain a end date ");
+            return edateError;
         }
         
         else{
@@ -125,14 +142,15 @@ import { Grid, Cell, Switch} from 'react-mdl';
     }
     //submit button function
     const submittion = () => {
+        
         if(valid() === true){
             alert(`Account for ${titleValue} created successfully`);
+            return eventError="";
         }
 
         else{
             alert(" fields with * are mandatory ")
         }
-        // alert(`Account for ${titleValue} created successfully`);
     }
 
     return (
@@ -171,6 +189,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                 <MenuItem value={"events type 3"} >Event 3</MenuItem>
 
                 </Select>
+                <p style={{color:"red", fontSize:"12px"}}>{eventError}</p>
                 </FormGroup>
                 
                 {/* upload image code */}
@@ -190,7 +209,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                     style={{width:"100%"}}
                     />
                     <label style={{textAlign:"right",color:"gray",fontSize:"12px"}}>(0/300)</label>
-                    {/* <p style={{color:"red", fontSize:"16px"}}>{titleError}</p> */}
+                    <p style={{color:"red", fontSize:"12px",marginTop:"-20px"}}>{titleError}</p>
                 </FormGroup>
                 
                 {/* categories ui code */}
@@ -208,6 +227,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                     <MenuItem value={"category type 3"} >category 3</MenuItem>
 
                     </Select>
+                    <p style={{color:"red", fontSize:"12px"}}>{categoryError}</p>
                 </FormGroup>
 
                 {/* short summary ui code */}
@@ -220,6 +240,8 @@ import { Grid, Cell, Switch} from 'react-mdl';
                         style={{width:"100%"}}
                     />
                     <label style={{marginTop:"0px",textAlign:"right",color:"gray",fontSize:"12px"}}>(0/300)</label>
+                    <p style={{color:"red", fontSize:"12px",marginTop:"-20px"}}>{summaryError}</p>
+
                 </FormGroup>
 
                 {/* registration site ui code */}
@@ -232,6 +254,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                     style={{width: '100%',marginTop:"0px"}}
                     />
                     <label style={{textAlign:"right",color:"gray",fontSize:"12px"}}>(0/300)</label>
+                    <p style={{color:"red", fontSize:"12px",marginTop:"-20px"}}>{typeError}</p>
                 </FormGroup>    
 
                 {/* virtual event online link ui code */}
@@ -246,7 +269,8 @@ import { Grid, Cell, Switch} from 'react-mdl';
                 value={onlineLink}
                 placeholder="online link"
                 style={{width: '100%',marginTop:"-35px"}}
-                /> 
+                />
+                <p style={{color:"red", fontSize:"12px"}}>{onlineLinkError}</p> 
                 
                 {/* timezone ui code */}
                 <FormGroup style={{marginTop:"12px"}}>
@@ -267,6 +291,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
 
                     </Select>
                     <span style={{fontWeight:"bold",marginLeft:"8px"}}>GMT +5:30 ?</span>
+                    <p style={{color:"red", fontSize:"12px"}}>{timezoneError}</p>
                     </FormGroup>
                 </FormGroup>
 
@@ -279,6 +304,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                             value={sdate}
                             onChange={handleChangeSdate}
                             />
+                            <p style={{color:"red", fontSize:"12px"}}>{sdateError}</p>
                         </FormGroup>
                     </Cell>
                     <Cell col={6}>
@@ -294,6 +320,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                                 </InputAdornment>
                             }
                             />
+                            <p style={{color:"red", fontSize:"12px"}}>{stimeError}</p>
                         </FormGroup>
                     </Cell>
                 </Grid>
@@ -307,7 +334,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                             value={edate}
                             onChange={handleChangeEdate}
                             />
-                            
+                            <p style={{color:"red", fontSize:"12px"}}>{edateError}</p>
                         </FormGroup>
                     </Cell>
                     <Cell col={6}>
@@ -323,6 +350,7 @@ import { Grid, Cell, Switch} from 'react-mdl';
                                 </InputAdornment>
                             }
                             />
+                            <p style={{color:"red", fontSize:"12px"}}>{etimeError}</p>
                         </FormGroup>
                     </Cell>
                 </Grid>

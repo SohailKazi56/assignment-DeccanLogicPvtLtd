@@ -12,7 +12,7 @@ function App() {
 
       <Appbararea />
       <Form />
-
+  
     </div>
   </>
   );
